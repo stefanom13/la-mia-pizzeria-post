@@ -9,9 +9,10 @@
       <button class="">
            <a class=" text-dark" asp-area="" asp-controller="Ingredienti" asp-action="Index">Guarda tutti i nostri Ingredienti</a>
      </button>
-     <button class="">
-           <a class=" text-dark" asp-area="" asp-controller="Pizza" asp-action="Create">Crea una nuova Pizza</a>
-     </button>
+    
+     <div>
+        <a href="@Url.Action("Create","Pizza")">Crea Pizza</a>
+    </div>
 </div>
 
 @{

@@ -9,27 +9,8 @@ namespace la_mia_pizzeria_model.Controllers
 {
     public class PizzaController : Controller
     {
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Pizza model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("Create", model);
-            }
-            Utility(new Pizza(model.NomePizza, model.Descrizione, model.PathImage,model.Prezzo));
-            return RedirectToAction("Index");
-        }
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View("Create");
-        }
 
-        private void Utility(Pizza pizza)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public ActionResult Index()
         {
@@ -83,23 +64,36 @@ namespace la_mia_pizzeria_model.Controllers
                 }
             }
         }
-        // GET: HomeController1/Create
-      
+        
 
-        // POST: HomeController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(Pizza pizza)
         {
-            try
+            // using (PizzaContext db = new PizzaContext())
+            //{
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                return View("Create", pizza);
             }
-            catch
+            using (PizzaContext db = new PizzaContext())
             {
-                return View();
+                db.Pizzas.Add(pizza);
+                db.SaveChanges();
+
             }
+
+
+            return RedirectToAction("Index");
+            // }
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+
 
         // GET: HomeController1/Edit/5
         public ActionResult Edit(int id)
