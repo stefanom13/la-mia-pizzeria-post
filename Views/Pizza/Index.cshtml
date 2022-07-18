@@ -11,12 +11,12 @@
      </button>
     
      <div>
-        <a href="@Url.Action("Create","Pizza")">Crea Pizza</a>
+        <a class="btn" href="@Url.Action("Create","Pizza")">Crea Pizza</a>
     </div>
 </div>
 
 @{
-    @if (Model == null)  // aggiungere la condizione
+    @if (Model == null) 
     {
         // se non c'è nessun elemento
     <div class="col-12">

@@ -5,7 +5,7 @@
 <div class="container">
     <form asp-controller="Pizza" asp-action="Create" method="post">
         @Html.AntiForgeryToken()
-    <div class="mb-3">
+         <div class="mb-3">
             <label for="NomePizza">Nome: </label>
             <input id="NomePizza" asp-for="NomePizza" class="d-block w-100" />            
             @*<span asp-validation-for="NomePizza" class="text-danger"></span>*@

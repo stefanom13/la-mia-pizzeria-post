@@ -23,7 +23,7 @@ public class Pizza
     public string PathImage { get; set; }
     public float Prezzo { get; set; }
 
-    public List<Ingredienti> PizzaIngredienti { get; set; }
+    public List<Ingredienti>? PizzaIngredienti { get; set; }
 
     public Pizza(string nomePizza, string descrizione, string pathImage, float prezzo)
     {
