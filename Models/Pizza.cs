@@ -33,13 +33,16 @@ public class Pizza
         PathImage = pathImage;
         Prezzo = prezzo;
     }
+    public Pizza()
+    {
+    }
 
     //internal void SetIngredienti(Ingredienti ingredienti1, Ingredienti ingredienti2, Ingredienti ingredienti3)
     //{
-        //PizzaIngredienti.Add(ingredienti1);
-       // PizzaIngredienti.Add(ingredienti2);
-        //PizzaIngredienti.Add(ingredienti3);
-   // }
+    //PizzaIngredienti.Add(ingredienti1);
+    // PizzaIngredienti.Add(ingredienti2);
+    //PizzaIngredienti.Add(ingredienti3);
+    // }
 }
 
 

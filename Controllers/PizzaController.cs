@@ -3,12 +3,34 @@ using Microsoft.AspNetCore.Mvc;
 
 using la_mia_pizzeria_model.Database;
 using la_mia_pizzeria_model.Models;
+using Microsoft.IdentityModel.Tokens;
 
 namespace la_mia_pizzeria_model.Controllers
 {
     public class PizzaController : Controller
     {
-        // GET: HomeController1
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pizza model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Create", model);
+            }
+            Utility(new Pizza(model.NomePizza, model.Descrizione, model.PathImage,model.Prezzo));
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+
+        private void Utility(Pizza pizza)
+        {
+            throw new NotImplementedException();
+        }
+
         public ActionResult Index()
         {
 
@@ -62,10 +84,7 @@ namespace la_mia_pizzeria_model.Controllers
             }
         }
         // GET: HomeController1/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+      
 
         // POST: HomeController1/Create
         [HttpPost]
